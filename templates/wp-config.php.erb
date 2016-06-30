@@ -15,17 +15,29 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
+<% if @db_name_env %>
 define('DB_NAME', '<%= @db_name %>');
-
+<% else %>
+define('DB_NAME', $_ENV['<%= @db_name_env %>']);
+<% end %>
 /** MySQL database username */
+<% if @db_user_env %>
 define('DB_USER', '<%= @db_user %>');
-
+<% else %>
+define('DB_USER', $_ENV['<%= @db_user_env %>']);
+<% end %>
 /** MySQL database password */
+<% if @db_password_env %>
 define('DB_PASSWORD', '<%= @db_password %>');
-
+<% else %>
+define('DB_PASSWORD', $_ENV['<%= @db_password_env %>']);
+<% end %>
 /** MySQL hostname */
+<% if @db_host_env %>
 define('DB_HOST', '<%= @db_host %>');
-
+<% else %>
+define('DB_HOST', $_ENV['<%= @db_host_env %>']);
+<% end %>
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
 

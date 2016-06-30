@@ -34,6 +34,19 @@
 # [*db_password*]
 #   Specifies the database user's password in plaintext. Default: password
 #
+# [*db_name_env*]
+#   Specifies the database name environment variable which the wordpress module should be configured
+#   to use . Default: undef
+#
+# [*db_host_env*]
+#   Specifies the database host environment variable to connect to. Default: undef
+#
+# [*db_user_env*]
+#   Specifies the database user environment variable. Default: undef
+#
+# [*db_password_env*]
+#   Specifies the database user's password to environment variable. Default: undef
+#
 # [*wp_owner*]
 #   Specifies the owner of the wordpress files. You must ensure this user 
 #   exists as this module does not attempt to create it if missing.  Default: 
@@ -91,6 +104,10 @@ class wordpress (
   $db_host              = 'localhost',
   $db_user              = 'wordpress',
   $db_password          = 'password',
+  $db_name_env          = undef,
+  $db_host_env          = undef,
+  $db_user_env          = undef,
+  $db_password_env      = undef,
   $wp_owner             = 'root',
   $wp_group             = '0',
   $wp_lang              = '',
@@ -116,6 +133,10 @@ class wordpress (
     db_host              => $db_host,
     db_user              => $db_user,
     db_password          => $db_password,
+    db_name_env          => $db_name_env,
+    db_host_env          => $db_host_env,
+    db_user_env          => $db_user_env,
+    db_password_env      => $db_password_env,
     wp_owner             => $wp_owner,
     wp_group             => $wp_group,
     wp_lang              => $wp_lang,
