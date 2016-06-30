@@ -1,6 +1,6 @@
-name    'hunner-wordpress'
+name    'neillturner-wordpress'
 version '1.0.0'
-source 'https://github.com/hunner/puppet-wordpress'
+source 'https://github.com/neillturner/puppet-wordpress'
 author 'Hunter Haugen'
 license 'Apache2'
 summary 'Puppet module to set up an instance of wordpress'
