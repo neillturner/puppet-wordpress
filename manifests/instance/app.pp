@@ -21,6 +21,7 @@ define wordpress::instance::app (
   $wp_proxy_port,
   $wp_multisite,
   $wp_site_domain,
+  $wp_site_domain_env,
   $wp_debug,
   $wp_debug_log,
   $wp_debug_display,
@@ -33,8 +34,8 @@ define wordpress::instance::app (
     warning('When $wp_config_content is set, the following parameters are ignored: $wp_table_prefix, $wp_lang, $wp_debug, $wp_debug_log, $wp_debug_display, $wp_plugin_dir, $wp_proxy_host, $wp_proxy_port, $wp_multisite, $wp_site_domain, $wp_additional_config')
   }
 
-  if $wp_multisite and ! $wp_site_domain {
-    fail('wordpress class requires `wp_site_domain` parameter when `wp_multisite` is true')
+  if $wp_multisite and !($wp_site_domain or $wp_site_domain_env) {
+    fail('wordpress class requires `wp_site_domain` or `wp_site_domain_env` parameter when `wp_multisite` is true')
   }
 
   if $wp_debug_log and ! $wp_debug {
@@ -121,6 +122,10 @@ define wordpress::instance::app (
     # - $db_user
     # - $db_password
     # - $db_host
+    # - $db_name_env
+    # - $db_user_env
+    # - $db_password_env
+    # - $db_host_env
     # - $wp_table_prefix
     # - $wp_lang
     # - $wp_plugin_dir
@@ -128,6 +133,7 @@ define wordpress::instance::app (
     # - $wp_proxy_port
     # - $wp_multisite
     # - $wp_site_domain
+    # - $wp_site_domain_env
     # - $wp_additional_config
     # - $wp_debug
     # - $wp_debug_log
