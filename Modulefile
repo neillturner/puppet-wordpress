@@ -1,5 +1,5 @@
 name    'neillturner-wordpress'
-version '1.1.2'
+version '1.2.0'
 source 'https://github.com/neillturner/puppet-wordpress'
 author 'Hunter Haugen'
 license 'Apache2'
