@@ -95,7 +95,7 @@ define wordpress::instance (
   $wp_proxy_port        = '',
   $wp_multisite         = false,
   $wp_site_domain       = '',
-  $wp_site_domain_env   = '',
+  $wp_site_domain_env   = undef,
   $wp_debug             = false,
   $wp_debug_log         = false,
   $wp_debug_display     = false,
